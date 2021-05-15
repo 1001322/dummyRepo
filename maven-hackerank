@@ -1,0 +1,78 @@
+<project xmlns = "http://maven.apache.org/POM/4.0.0"
+   xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation = "http://maven.apache.org/POM/4.0.0
+   http://maven.apache.org/xsd/maven-4.0.0.xsd">
+   <modelVersion>4.0.0</modelVersion>
+   <groupId>com.fresco.play</groupId>
+   <artifactId>maven-lifecycle-build</artifactId>
+   <version>1.0</version>
+   <build>
+   <plugins>
+<plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-antrun-plugin</artifactId>
+            <version>1.1</version>
+	    <executions>
+            <execution>
+                  <id>id.validate</id>
+                  <phase>validate</phase>
+                  <goals>
+                     <goal>run</goal>
+                  </goals>
+                  <configuration>
+                     <tasks>
+                        <echo>Executing the VALIDATE phase of Clean Lifecycle for Artifact ID : ${project.artifactId}</echo>
+                     </tasks>
+                  </configuration>
+               </execution>
+               <execution>
+                  <id>id.compile</id>
+                  <phase>compile</phase>
+                  <goals>
+                     <goal>run</goal>
+                  </goals>
+                  <configuration>
+                     <tasks>
+                        <echo>Executing the COMPILE phase of Clean Lifecycle for Artifact ID : ${project.artifactId}</echo>
+                     </tasks>
+                  </configuration>
+               </execution>
+               <execution>
+                  <id>id.test</id>
+                  <phase>test</phase>
+                  <goals>
+                     <goal>run</goal>
+                  </goals>
+                  <configuration>
+                     <tasks>
+                        <echo>Executing the TEST phase of Clean Lifecycle for Artifact ID : ${project.artifactId}</echo>
+                     </tasks>
+                  </configuration>
+               </execution>
+               </executions>
+</plugin>
+<plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>3.3.1</version>
+        <configuration>
+          <webappDirectory>/target</webappDirectory>
+        </configuration>
+      </plugin>
+        <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-install-plugin</artifactId>
+        <version>3.0.0-M1</version>
+        </plugin>
+
+   </plugins>
+   </build>
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.1</version>
+        </dependency>
+    </dependencies>
+
+</project>
